@@ -20,6 +20,9 @@ public class Deck {
             return null;
         }
         Carta deCima = cartas[0];
+        for(int i=0; i < proxLivre - 1; i++){
+            cartas[i] = cartas[1 + i];
+        }
     }
     public int quantCartas(){
         return proxLivre;
