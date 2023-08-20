@@ -22,6 +22,20 @@ public class Deck {
         }
         return false;
     }
+    public boolean insereNaPosicao(int posicao, Carta carta) {
+        if (proxLivre < tamanho - 1 && posicao >= 0 && posicao <= proxLivre) {
+            for (int i = proxLivre; i > posicao; i--) {
+                cartas[i] = cartas[i - 1];
+            }
+            cartas[posicao] = carta;
+            if (carta.isAberto()) {
+                carta.viraCarta();
+            }
+            proxLivre++;
+            return true;
+        }
+        return false;
+    }
     public Carta remove(){
         if(proxLivre == 0){
             return null;
