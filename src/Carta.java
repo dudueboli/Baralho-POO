@@ -1,9 +1,9 @@
 public class Carta {
     private Naipe naipe;
-    private Valores valor;
+    private Valor valor;
     private boolean aberto; 
 
-    Carta(Naipe naipe, Valores valor){
+    Carta(Naipe naipe, Valor valor){
         this.naipe = naipe;
         this.valor = valor;
         this.aberto = true;
@@ -14,7 +14,7 @@ public class Carta {
         return naipe;
     }
 
-    public Valores getValor() {
+    public Valor getValor() {
         return valor;
     }
 
@@ -24,4 +24,23 @@ public class Carta {
     public void viraCarta(){
         aberto = !aberto;
     }
+
+    public boolean Bigger(Carta outra){
+        if(valor.ordinal() > outra.getValor().ordinal()){
+            return true;
+        }
+        return false;
+    }
+    public boolean igual(Carta outra){
+        if(valor.ordinal() == outra.getValor().ordinal()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Carta [naipe=" + naipe + ", valor=" + valor + ", aberto=" + aberto + "]";
+    }
+    
 }
